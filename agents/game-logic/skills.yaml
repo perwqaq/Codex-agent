@@ -1,0 +1,12 @@
+game_logic:
+  description: "游戏逻辑工程师 - 规则引擎、房间管理"
+  skills:
+    - game-algorithm
+    - room-management
+    - scoring-engine
+    - anti-cheat
+    - matchmaking
+  mcp_servers:
+    - filesystem
+    - terminal
+    - math-calculator

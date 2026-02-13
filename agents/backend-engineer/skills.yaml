@@ -1,0 +1,15 @@
+backend_engineer:
+  description: "后端工程师 - API开发、数据库设计"
+  skills:
+    - node-api
+    - python-fastapi
+    - database-design
+    - auth-system
+    - rest-api-design
+  mcp_servers:
+    - filesystem
+    - terminal
+    - github
+    - postgres
+    - redis
+    - docker

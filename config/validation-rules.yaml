@@ -1,0 +1,66 @@
+validation_rules:
+  code_review:
+    static_analysis:
+      tool: "sonarqube"
+      thresholds:
+        coverage: 80
+        bugs: 0
+        vulnerabilities: 0
+        code_smells: 10
+    security_scan:
+      tool: "owasp"
+      severity: "high"
+    style_check:
+      tools: ["eslint", "prettier"]
+      fail_on_error: true
+
+  functional_test:
+    unit_test:
+      coverage_min: 80
+      pass_rate: 100
+    integration_test:
+      api_coverage: 100
+      pass_rate: 100
+    e2e_test:
+      critical_paths: 100
+      pass_rate: 100
+
+  performance_test:
+    response_time:
+      p50: 100
+      p95: 200
+      p99: 500
+    concurrency:
+      users: 1000
+      duration: 300
+    resources:
+      cpu_max: 80
+      memory_max: 80
+
+  experience_score:
+    dimensions:
+      - name: "功能完整度"
+        weight: 25
+      - name: "UI美观度"
+        weight: 25
+      - name: "性能表现"
+        weight: 25
+      - name: "交互体验"
+        weight: 25
+    scoring:
+      excellent: 9.5
+      good: 8.0
+      acceptable: 6.0
+      poor: 4.0
+
+  delivery_criteria:
+    - 代码无重大bug
+    - 安全扫描通过
+    - 性能达标
+    - 连续3次体验评分 ≥ 9.5
+    - 文档完整
+
+  retry_policy:
+    max_attempts: 3
+    backoff_multiplier: 2
+    initial_delay_ms: 1000

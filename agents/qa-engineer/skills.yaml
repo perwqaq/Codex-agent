@@ -1,0 +1,15 @@
+qa_engineer:
+  description: "QA工程师 - 测试计划、自动化测试"
+  skills:
+    - test-automation
+    - performance-test
+    - security-test
+    - regression-test
+    - bug-tracker
+  mcp_servers:
+    - filesystem
+    - terminal
+    - browser
+    - playwright
+    - selenium
+    - database

@@ -1,0 +1,135 @@
+version: "1.0"
+name: "质量验收流程"
+
+description: "严格的商业级交付验证流程"
+
+stages:
+  - name: "步骤1: 代码审查"
+    tasks:
+      - id: "static_analysis"
+        name: "静态分析"
+        tool: "sonarqube"
+        checks:
+          - "coverage > 80%"
+          - "bugs = 0"
+          - "vulnerabilities = 0"
+          - "code_smells < 10"
+        pass_threshold: "全部通过"
+
+      - id: "security_scan"
+        name: "安全扫描"
+        tool: "owasp"
+        checks:
+          - "无高危漏洞"
+          - "无严重漏洞"
+        pass_threshold: "无High/Critical"
+
+      - id: "style_check"
+        name: "代码规范"
+        tools: ["eslint", "prettier"]
+        checks:
+          - "无错误"
+          - "无警告"
+        pass_threshold: "全部通过"
+
+  - name: "步骤2: 功能测试"
+    tasks:
+      - id: "unit_test"
+        name: "单元测试"
+        coverage_min: 80
+        pass_rate: 100
+
+      - id: "integration_test"
+        name: "集成测试"
+        api_coverage: 100
+        pass_rate: 100
+
+      - id: "e2e_test"
+        name: "E2E测试"
+        critical_paths: 100
+        pass_rate: 100
+
+  - name: "步骤3: 性能压测"
+    tasks:
+      - id: "response_time"
+        name: "响应时间"
+        metrics:
+          p50: 100
+          p95: 200
+          p99: 500
+        threshold: "P95 < 200ms"
+
+      - id: "concurrency"
+        name: "并发测试"
+        users: 1000
+        duration: 300
+        success_criteria: "无错误"
+
+      - id: "resource"
+        name: "资源占用"
+        cpu_max: 80
+        memory_max: 80
+
+  - name: "步骤4: 体验评分 (关键!)"
+    description: "不读取代码，直接启动项目体验并评分"
+    iteration:
+      min: 3
+      max: 10
+    scoring_dimensions:
+      - name: "功能完整度"
+        weight: 25
+        criteria:
+          - "所有核心功能可用"
+          - "无阻断性BUG"
+          - "业务流程完整"
+
+      - name: "UI美观度"
+        weight: 25
+        criteria:
+          - "设计还原度高"
+          - "配色舒适"
+          - "布局合理"
+
+      - name: "性能表现"
+        weight: 25
+        criteria:
+          - "首屏加载快"
+          - "操作响应及时"
+          - "无明显卡顿"
+
+      - name: "交互体验"
+        weight: 25
+        criteria:
+          - "操作流畅"
+          - "提示清晰"
+          - "容错性好"
+
+    pass_criteria:
+      score_min: 9.5
+      consecutive_required: 3
+
+    on_fail:
+      - "记录问题"
+      - "分析问题类型"
+      - "调度对应Agent修复"
+
+  - name: "步骤5: 最终交付"
+    condition: "前4个步骤全部通过"
+    tasks:
+      - "生成交付文档"
+      - "打包项目"
+      - "部署说明"
+      - "运维文档"
+
+gates:
+  delivery:
+    requires:
+      - "代码审查通过"
+      - "功能测试通过"
+      - "性能测试通过"
+      - "连续3次体验评分≥9.5"
+
+  on_retry:
+    max_attempts: 10
+    backoff: "指数退避"
+    notification: true

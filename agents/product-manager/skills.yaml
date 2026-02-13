@@ -1,0 +1,11 @@
+product_manager:
+  description: "产品经理 - 需求分析、PRD编写"
+  skills:
+    - PRD-generator
+    - requirement-analysis
+    - competitor-research
+    - user-story-writer
+  mcp_servers:
+    - filesystem
+    - browser
+    - notion

@@ -1,0 +1,18 @@
+devops_security:
+  description: "运维安全 - CI/CD、容器化、安全审计"
+  skills:
+    - dockerfile-gen
+    - kubernetes-manifest
+    - ci-cd-pipeline
+    - security-audit
+    - monitoring-setup
+  mcp_servers:
+    - filesystem
+    - terminal
+    - github
+    - docker
+    - kubernetes
+    - aws
+    - cloudflare
+    - monitoring
+    - logging

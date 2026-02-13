@@ -1,0 +1,14 @@
+frontend_engineer:
+  description: "前端工程师 - React/Vue开发、性能优化"
+  skills:
+    - react-vite
+    - vue-framework
+    - websocket-client
+    - ui-component-lib
+    - performance-opt
+  mcp_servers:
+    - filesystem
+    - terminal
+    - browser
+    - playwright
+    - lighthouse

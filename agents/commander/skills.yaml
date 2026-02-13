@@ -1,0 +1,16 @@
+commander:
+  description: "总指挥 - 代码审查、MCP安装、质量验收"
+  skills:
+    - review-prompts
+    - screenshot-automation
+    - mcp-installer
+    - quality-gate
+    - delivery-check
+    - sonarqube-integration
+    - security-scan
+  mcp_servers:
+    - filesystem
+    - terminal
+    - browser
+    - screenshot
+    - github

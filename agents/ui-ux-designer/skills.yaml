@@ -1,0 +1,46 @@
+ui_ux_designer:
+  description: "UI/UX设计师 - 界面设计、交互原型、设计调研"
+  skills:
+    - figma-integration
+    - pencil-proto
+    - design-system
+    - responsive-check
+    - accessibility-audit
+    - design-research
+    - competitor-design
+  mcp_servers:
+    - filesystem
+    - browser
+    - screenshot
+    - figma
+
+design_resources:
+  domestic:
+    - name: "站酷 (ZCOOL)"
+      url: "https://www.zcool.com.cn/"
+      keywords: "斗地主UI、棋牌游戏界面、扑克素材"
+    - name: "图精灵"
+      url: "https://616pic.com/tupian/doudizhu.html"
+      keywords: "斗地主、卡通扑克、地主角色"
+    - name: "素材公社"
+      url: "https://m.tooopen.com/tag/斗地主游戏"
+      keywords: "游戏模板、PSD源文件"
+    - name: "免抠素材网"
+      url: "https://www.mksucai.com/sc/qipaiUI.html"
+      keywords: "棋牌UI元素、金币、按钮"
+
+  international:
+    - name: "Kenney Assets"
+      url: "https://kenney.nl/assets"
+      keywords: "cards、ui、poker、board game"
+      license: "CC0"
+    - name: "itch.io"
+      url: "https://itch.io/game-assets/free/tag-cards"
+      keywords: "cards、poker、casino"
+    - name: "RawPixel"
+      url: "https://www.rawpixel.com/search/game%20pieces"
+      keywords: "game pieces、poker、dice"
+      license: "CC0"
+    - name: "OpenGameArt"
+      url: "https://opengameart.org/"
+      keywords: "cards、poker、board game"
