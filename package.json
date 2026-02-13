@@ -1,13 +1,37 @@
 {
   "name": "codex-agent-workflow",
   "version": "1.0.0",
-  "description": "8-Agent协同工作流系统 - 棋牌游戏平台开发",
+  "description": "8-Agent协同工作流系统 - 棋牌游戏平台开发 (Codex/Trae/Cursor技能包)",
+  "main": "skills/commander/SKILL.md",
+  "keywords": [
+    "codex",
+    "trae",
+    "cursor",
+    "agent",
+    "workflow",
+    "game",
+    "skill",
+    "mcp"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/perwqaq/Codex-agent.git"
+  },
+  "files": [
+    "skills/",
+    "config/",
+    "workflow/",
+    "validation/",
+    "mcp/"
+  ],
   "scripts": {
     "install:skills": "npx skillsadd anthropic/review-prompts && npx skillsadd anthropic/screenshot-automation && npx skillsadd anthropic/mcp-installer && npx skillsadd anthropic/quality-gate && npx skillsadd anthropic/delivery-check && npx skillsadd anthropic/PRD-generator && npx skillsadd anthropic/requirement-analysis && npx skillsadd anthropic/competitor-research && npx skillsadd anthropic/figma-integration && npx skillsadd anthropic/design-system && npx skillsadd anthropic/responsive-check && npx skillsadd anthropic/accessibility-audit && npx skillsadd anthropic/react-vite && npx skillsadd anthropic/websocket-client && npx skillsadd anthropic/node-api && npx skillsadd anthropic/database-design && npx skillsadd anthropic/auth-system && npx skillsadd anthropic/game-algorithm && npx skillsadd anthropic/room-management && npx skillsadd anthropic/scoring-engine && npx skillsadd anthropic/test-automation && npx skillsadd anthropic/performance-test && npx skillsadd anthropic/security-test && npx skillsadd anthropic/dockerfile-gen && npx skillsadd anthropic/ci-cd-pipeline && npx skillsadd anthropic/security-audit",
-    "install:mcp": "npm install -g @modelcontextprotocol/server-filesystem @modelcontextprotocol/server-playwright @modelcontextprotocol/server-github @modelcontextprotocol/server-postgres @modelcontextprotocol/server-redis @modelcontextprotocol/server-docker",
+    "install:mcp": "npm install -g @modelcontextprotocol/server-filesystem @modelcontextprotocol/server-playwright @modelcontextprotocol/server-github",
     "install:all": "npm run install:mcp && npm run install:skills"
   },
-  "keywords": ["codex", "agent", "workflow", "game"],
-  "author": "",
-  "license": "MIT"
+  "publishConfig": {
+    "access": "public"
+  }
 }

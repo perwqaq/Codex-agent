@@ -5,29 +5,72 @@
 
 ---
 
-## 📥 一键安装
+## 📦 多IDE安装方法
 
-### 克隆并安装
+### 1. Trae IDE (推荐)
 ```bash
+# 克隆到项目目录
 git clone https://github.com/perwqaq/Codex-agent.git
-cd Codex-agent
+
+# 复制 skills 到 .trae/skills/
+cp -r Codex-agent/skills/* .trae/skills/
+
+# 或者使用 npm 安装
+npm install codex-agent-workflow
+```
+
+### 2. Codex CLI
+```bash
+# 安装技能包
+npx skillsadd perwqaq/codex-agent-workflow
+
+# 或者手动安装
+git clone https://github.com/perwqaq/Codex-agent.git ~/.codex/skills/codex-agent-workflow
+```
+
+### 3. Cursor IDE
+```bash
+# 复制到 Cursor 技能目录
+git clone https://github.com/perwqaq/Codex-agent.git
+mkdir -p ~/.cursor/skills
+cp -r Codex-agent/skills/* ~/.cursor/skills/
+```
+
+### 4. 通用安装 (任意IDE)
+```bash
+# 一键安装所有依赖
+npm install -g codex-agent-workflow
+
+# 或者克隆后使用
 npm run install:all
 ```
 
 ---
 
-## 📦 NPM 命令
+## 🚀 使用方法
 
-```bash
-# 安装所有 Skills
-npm run install:skills
-
-# 安装 MCP 服务器
-npm run install:mcp
-
-# 一键全部安装
-npm run install:all
+### 启动工作流
+在IDE中输入：
 ```
+开始项目
+```
+或
+```
+@commander 开始棋牌游戏平台开发
+```
+
+### 各Agent触发指令
+
+| Agent | 触发指令 |
+|-------|----------|
+| @commander | 开始项目、审查代码、质量验收 |
+| @product-manager | 写PRD、分析需求、产品规划 |
+| @ui-ux-designer | 设计界面、出设计规范、找素材 |
+| @frontend-engineer | 写前端、React组件、WebSocket |
+| @backend-engineer | 写后端、API开发、数据库设计 |
+| @game-logic | 写游戏逻辑、游戏规则、房间管理 |
+| @qa-engineer | 写测试、测试用例、自动化测试 |
+| @devops-security | 写Dockerfile、CI/CD、部署 |
 
 ---
 
@@ -52,33 +95,87 @@ npm run install:all
 
 ---
 
-## 8个 Agent
+## 📁 目录结构
 
-| Agent | 职责 |
-|-------|------|
-| Commander | 总指挥 - 代码审查、质量验收、MCP安装 |
-| Product Manager | 产品经理 - 需求分析、PRD编写 |
-| UI/UX Designer | 设计师 - 设计调研、Design System |
-| Frontend Engineer | 前端 - React、WebSocket |
-| Backend Engineer | 后端 - API、数据库 |
-| Game Logic | 游戏逻辑 - 算法、房间管理 |
-| QA Engineer | 测试 - 自动化、性能测试 |
-| DevOps/Security | 运维 - CI/CD、容器化 |
+```
+Codex-agent/
+├── skills/                    # 8个Agent技能包 (IDE可识别)
+│   ├── commander/
+│   │   └── SKILL.md          # 总指挥
+│   ├── product-manager/
+│   │   └── SKILL.md          # 产品经理
+│   ├── ui-ux-designer/
+│   │   └── SKILL.md          # 设计师
+│   ├── frontend-engineer/
+│   │   └── SKILL.md          # 前端工程师
+│   ├── backend-engineer/
+│   │   └── SKILL.md          # 后端工程师
+│   ├── game-logic/
+│   │   └── SKILL.md          # 游戏逻辑工程师
+│   ├── qa-engineer/
+│   │   └── SKILL.md          # 测试工程师
+│   └── devops-security/
+│       └── SKILL.md          # 运维安全工程师
+├── agents/                    # 原始角色定义
+├── config/                    # 全局配置
+├── workflow/                  # 工作流定义
+├── validation/               # 验收标准
+├── mcp/                      # MCP服务器配置
+├── package.json              # NPM包配置
+└── README.md                 # 本文件
+```
 
 ---
 
-## 验收流程
+## 🎯 工作流程示例
 
 ```
-1. 代码审查 → SonarQube + OWASP
-2. 功能测试 → 单元测试 > 80%
-3. 性能压测 → P95 < 200ms
-4. 体验评分 → 连续3次 ≥ 9.5分
+1. 用户: "开始棋牌游戏平台开发"
+   ↓
+2. Commander 启动工作流
+   ↓
+3. Product Manager 写PRD
+   ↓
+4. UI/UX Designer 出设计规范
+   ↓
+5. Frontend/Backend/Game Logic 并行开发
+   ↓
+6. QA Engineer 测试
+   ↓
+7. Commander 质量验收 (连续3次≥9.5分)
+   ↓
+8. DevOps 部署上线
 ```
 
 ---
 
-## 技术栈
+## 📦 NPM 命令
+
+```bash
+# 安装所有 Skills
+npm run install:skills
+
+# 安装 MCP 服务器
+npm run install:mcp
+
+# 一键全部安装
+npm run install:all
+```
+
+---
+
+## ✅ 验收标准
+
+| 检查项 | 标准 |
+|--------|------|
+| 代码审查 | SonarQube + OWASP 通过 |
+| 功能测试 | 单元测试 > 80% |
+| 性能测试 | P95 < 200ms |
+| 体验评分 | 连续3次 ≥ 9.5分 |
+
+---
+
+## 🛠️ 技术栈
 
 - **前端**: React + TypeScript + Vite
 - **后端**: Node.js + FastAPI + PostgreSQL + Redis
