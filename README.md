@@ -5,44 +5,54 @@
 
 ---
 
-## 📦 多IDE安装方法
+## 📦 Windows 安装方法
 
-### 1. Trae IDE (推荐)
-```bash
-# 克隆到项目目录
+### 1. 克隆仓库
+```cmd
 git clone https://github.com/perwqaq/Codex-agent.git
+```
 
-# 复制 skills 到 .trae/skills/
+### 2. 复制到 IDE Skills 目录
+
+#### Trae IDE
+```cmd
+xcopy /E /I Codex-agent\skills .trae\skills
+```
+
+#### Codex CLI
+```cmd
+xcopy /E /I Codex-agent\skills %USERPROFILE%\.codex\skills\codex-agent-workflow
+```
+
+#### Cursor IDE
+```cmd
+xcopy /E /I Codex-agent\skills %USERPROFILE%\.cursor\skills
+```
+
+---
+
+## 📦 macOS/Linux 安装方法
+
+### 1. 克隆仓库
+```bash
+git clone https://github.com/perwqaq/Codex-agent.git
+```
+
+### 2. 复制到 IDE Skills 目录
+
+#### Trae IDE
+```bash
 cp -r Codex-agent/skills/* .trae/skills/
-
-# 或者使用 npm 安装
-npm install codex-agent-workflow
 ```
 
-### 2. Codex CLI
+#### Codex CLI
 ```bash
-# 安装技能包
-npx skillsadd perwqaq/codex-agent-workflow
-
-# 或者手动安装
-git clone https://github.com/perwqaq/Codex-agent.git ~/.codex/skills/codex-agent-workflow
+cp -r Codex-agent/skills/* ~/.codex/skills/codex-agent-workflow/
 ```
 
-### 3. Cursor IDE
+#### Cursor IDE
 ```bash
-# 复制到 Cursor 技能目录
-git clone https://github.com/perwqaq/Codex-agent.git
-mkdir -p ~/.cursor/skills
 cp -r Codex-agent/skills/* ~/.cursor/skills/
-```
-
-### 4. 通用安装 (任意IDE)
-```bash
-# 一键安装所有依赖
-npm install -g codex-agent-workflow
-
-# 或者克隆后使用
-npm run install:all
 ```
 
 ---
@@ -145,21 +155,6 @@ Codex-agent/
 7. Commander 质量验收 (连续3次≥9.5分)
    ↓
 8. DevOps 部署上线
-```
-
----
-
-## 📦 NPM 命令
-
-```bash
-# 安装所有 Skills
-npm run install:skills
-
-# 安装 MCP 服务器
-npm run install:mcp
-
-# 一键全部安装
-npm run install:all
 ```
 
 ---
